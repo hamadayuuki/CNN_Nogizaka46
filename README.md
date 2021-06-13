@@ -1,5 +1,6 @@
 # CNN_Nogizaka46
-##【ライブラリ】
+##
+## 【ライブラリ】
 
     <Nogizaka_Scraping_byChrome>
         selenium
@@ -13,22 +14,22 @@
         opencv-python
 
 
-##【流れ】
+## 【流れ】
 
-    1.名前別で画像スクレイピング
+    1. 名前別で画像スクレイピング
 
-    2.画像を 顔識別加工
+    2. 画像を 顔識別加工
 
-    3.手動で選別をする （選別前のフォルダはない)
+    3. 手動で選別をする （選別前のフォルダはない)
 
-    4.テスト用データ(20%) , 訓練用データ前データ(80%) に分ける
+    4. テスト用データ(20%) , 訓練用データ前データ(80%) に分ける
 
-    5.訓練用データを作成 (角度を変え,閾値・ぼかし・オリジナル) , データ量が前データの 9倍 になる
-
-
+    5. 訓練用データを作成 (角度を変え,閾値・ぼかし・オリジナル) , データ量が前データの 9倍 になる
 
 
-##【画像枚数】
+
+
+## 【画像枚数】
 
     スクレイピング Pic 
         白石 : 283 , 斎藤 : 306 , 山下 : 236 , 西野 : 290 , 生田 : 248
@@ -48,17 +49,17 @@
 
 
 
-##【詰まったところ】
+## 【詰まったところ】
 
-<Nogizaka_Scraping_byChrome>
-    Google 画像検索のパラメータ (顔)
+- <Nogizaka_Scraping_byChrome>
+    - Google 画像検索のパラメータ (顔)
 
-    ライブラリ chromedriver_binary の役割
-    Chrome のバージョン違い → 使っている Chrome のバージョンを上げる
+    - ライブラリ chromedriver_binary の役割
+    - Chrome のバージョン違い → 使っている Chrome のバージョンを上げる
 
-    for j, src in enumerate(srcs):　からはコピペ.内容を理解できていな
+    - for j, src in enumerate(srcs):　からはコピペ.内容を理解できていな
 
-<Remake_Pic>
+- <Remake_Pic>
     cv2 のインストールするときのライブラリ名が opencv-python
 
     同じ階層のでディレクトリ
@@ -76,12 +77,12 @@
     階層型のフォルダ作成 : os.makedirs()
 
 
-<devide_test_train>
+- <devide_test_train>
     テスト用に画像を分けるとき,実行するたびにテスト用画像が増加し,訓練用データは減少する
 
     os.path.join("/A/B/C", "file.py"))   # /A/B/C/file.py
 
-<Make_traindates>
+- <Make_traindates>
     in_jpg=glob.glob(in_dir) : フォルダ内要素全ての ディレクトリ を抜き出す リスト型
 
     回転させてから オリジナル・閾値・ぼかし の処理を行うこと.効率よく加工できる.
@@ -93,6 +94,6 @@
 
 
 
-<learn>
+- <learn>
     history.history の中身が acc → accuracy , val_acc → val_accuracy に変更
     print(history.history) で確認できる
